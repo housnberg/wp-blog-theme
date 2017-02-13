@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Pathway+Gothic+One");
+html {
+  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  visibility: hidden; }
+
+.clearfix {
+  zoom: 1; }
+
+.valigner {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%; }
+
+.valigner + * {
+  display: inline-block;
+  vertical-align: middle; }
+
+body {
+  background-color: #3A3C40; }
+
+#overlay {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: url(../images/wjkc3xzjsxw-geran-de-klerk.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center; }
+  #overlay h1 {
+    font-size: 5em;
+    margin: 0px; }
+  #overlay p {
+    font-size: 1.5em; }
+  #overlay .mission {
+    text-align: left;
+    padding: 2.5%;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: rgba(0, 0, 0, 0.5); }
+  #overlay iframe {
+    display: block; }
+  #overlay #countdown {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: right; }
+    #overlay #countdown .time-wrapper {
+      display: inline-block;
+      padding: 5px;
+      text-align: center;
+      background-color: #3A3C40;
+      font-family: "Pathway Gothic One", sans-serif;
+      color: #FFFFFF; }
+      #overlay #countdown .time-wrapper .time {
+        width: 2em;
+        text-align: center;
+        padding: 15px;
+        background-color: #25272A;
+        font-size: 2em;
+        position: relative;
+        margin-bottom: 3px; }
+    #overlay #countdown h2 {
+      margin: 0;
+      padding: 0;
+      padding-top: 5px; }
+
+#content-wrapper {
+  padding: 15px;
+  width: 100%;
+  position: relative; }
+  #content-wrapper main {
+    display: inline-block;
+    width: 100%; }
+    #content-wrapper main .row {
+      display: inline-block;
+      width: 100%;
+      background-color: #25272A;
+      margin-bottom: 15px; }
+    #content-wrapper main .row:last-child {
+      margin-bottom: 0; }
+
+body::-webkit-scrollbar-track {
+  background-color: transparent; }
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent; }
+
+body::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #EEEEEE; }
+
+h1#site-title {
+  height: 75px; }
+  h1#site-title a {
+    height: 100%; }
+    h1#site-title a img {
+      height: 100%;
+      opacity: 0; }
+
+#nav-wrapper {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  position: fixed;
+  padding: 5%;
+  top: 0;
+  z-index: 10; }
+  #nav-wrapper #logo-main {
+    display: table-cell;
+    vertical-align: middle;
+    height: 75px;
+    opacity: 0; }
+  #nav-wrapper nav {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right; }
+    #nav-wrapper nav ul {
+      padding: 10px 10px 10px 10px;
+      margin: 0;
+      display: inline;
+      border-bottom: 1px solid #b00424; }
+      #nav-wrapper nav ul li:first-child {
+        margin-left: 0; }
+      #nav-wrapper nav ul li {
+        display: inline;
+        margin-left: 3%;
+        position: relative; }
+        #nav-wrapper nav ul li a {
+          -webkit-transition-timing-function: ease-out;
+          -webkit-transition-property: all;
+          -webkit-transition-duration: 0.25s;
+          -moz-transition-timing-function: ease-out;
+          -moz-transition-property: all;
+          -moz-transition-duration: 0.25s;
+          -o-transition-timing-function: ease-out;
+          -o-transition-property: all;
+          -o-transition-duration: 0.25s;
+          transition-timing-function: ease-out;
+          transition-property: all;
+          transition-duration: 0.25s;
+          font-family: 'Pathway Gothic One', sans-serif;
+          font-size: 1.5em;
+          text-decoration: none;
+          position: relative;
+          color: #DFDFDF; }
+        #nav-wrapper nav ul li a:link,
+        #nav-wrapper nav ul li a:visited {
+          color: #DFDFDF; }
+        #nav-wrapper nav ul li .light-theme a:link,
+        #nav-wrapper nav ul li .light-theme a:visited {
+          color: #3A3C40; }
+      #nav-wrapper nav ul li:before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        background-color: #60B8B9;
+        z-index: 1;
+        bottom: -11px;
+        -webkit-transition-timing-function: ease-out;
+        -webkit-transition-property: all;
+        -webkit-transition-duration: 0.25s;
+        -moz-transition-timing-function: ease-out;
+        -moz-transition-property: all;
+        -moz-transition-duration: 0.25s;
+        -o-transition-timing-function: ease-out;
+        -o-transition-property: all;
+        -o-transition-duration: 0.25s;
+        transition-timing-function: ease-out;
+        transition-property: all;
+        transition-duration: 0.25s; }
+      #nav-wrapper nav ul li:hover a {
+        color: #9F9DA7; }
+      #nav-wrapper nav ul li:hover:before {
+        width: 100%; }
+
+h1,
+h2,
+h3,
+h5 {
+  font-family: "Pathway Gothic One", sans-serif; }
+
+h1,
+h2 {
+  color: #FFFFFF; }
+
+h3,
+h4,
+h5 {
+  color: #9F9DA7; }
+
+p {
+  font-family: "Cardo", serif;
+  color: #DFDFDF; }
+
+#switch-theme {
+  position: fixed;
+  bottom: 10px;
+  left: 10px; }
+
+.light-theme body {
+  background-color: #EEEEEE; }
+
+.light-theme #wrapper {
+  background-color: #FFFFFF; }
+
+.button {
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-property: all;
+  -moz-transition-duration: 0.25s;
+  -o-transition-timing-function: ease-out;
+  -o-transition-property: all;
+  -o-transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  transition-property: all;
+  transition-duration: 0.25s;
+  padding: 15px;
+  background: #25272A;
+  text-transform: uppercase;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 1.25em;
+  display: inline-block;
+  position: relative;
+  color: #DFDFDF; }
+
+.button:before {
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-property: all;
+  -moz-transition-duration: 0.25s;
+  -o-transition-timing-function: ease-out;
+  -o-transition-property: all;
+  -o-transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  transition-property: all;
+  transition-duration: 0.25s;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #60B8B9;
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+
+.button:hover {
+  color: #9F9DA7; }
+
+.button:hover:before {
+  width: 100%; }
+
+.button:hover {
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */
