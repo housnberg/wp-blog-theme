@@ -1,0 +1,1 @@
+sass --watch stylesheet.scss:style.css

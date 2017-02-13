@@ -1,0 +1,41 @@
+html {
+	box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*, 
+*:before, 
+*:after {
+	box-sizing: inherit;
+}
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.valigner {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.valigner + * {
+    display: inline-block;
+    vertical-align: middle;
+}

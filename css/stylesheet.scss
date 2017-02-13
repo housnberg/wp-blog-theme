@@ -1,0 +1,327 @@
+//Variables
+//$fontPrimary: ;
+//$fontSecondary
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Pathway+Gothic+One');
+
+$colorBackground: #3A3C40;
+$colorForeground: #25272A;
+$colorTextPrimary: #FFFFFF;
+$colorTextSecondary: #DFDFDF;
+$colorTextTertiary: #9F9DA7;
+$colorDecoration: #60B8B9;
+
+$colorBackgroundLight: #EEEEEE;
+$colorForegroundLight: #FFFFFF;
+
+$mainFont: 'Pathway Gothic One', sans-serif;
+$secondaryFont: 'Cardo', serif;
+
+$boxShadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin boxShadow($shadow) {
+    -webkit-box-shadow: $shadow;
+       -moz-box-shadow: $shadow;
+	        box-shadow: $shadow;
+}
+
+@mixin defaultTransition($time) {
+    -webkit-transition-timing-function: ease-out;
+           -webkit-transition-property: all;
+	       -webkit-transition-duration: $time;
+       -moz-transition-timing-function: ease-out;
+	          -moz-transition-property: all;
+	          -moz-transition-duration: $time;
+         -o-transition-timing-function: ease-out;
+	            -o-transition-property: all;
+	            -o-transition-duration: $time;
+	        transition-timing-function: ease-out;
+	               transition-property: all;
+	               transition-duration: $time;
+}
+
+body {
+    background-color: $colorBackground;
+}
+
+#overlay {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/wjkc3xzjsxw-geran-de-klerk.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    
+    h1 {
+        font-size: 5em;
+        margin: 0px;
+    }
+    
+    p {
+        font-size: 1.5em;
+    }
+    
+    .mission {
+        text-align: left;
+        padding: 2.5%;
+        
+        @include boxShadow($boxShadow);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    iframe {
+        display: block;
+    }
+    
+    #countdown {
+    
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: right;
+        
+        .time-wrapper {
+            display: inline-block;
+            padding: 5px;
+            text-align: center;
+            background-color: $colorBackground;
+            font-family: $mainFont;
+            color: $colorTextPrimary;
+            
+            .time {
+                width: 2em;
+                text-align: center;
+                padding: 15px;
+                background-color: $colorForeground;
+                font-size: 2em;
+                position: relative;
+                margin-bottom: 3px;
+            } 
+        }
+        
+        h2 {
+            margin: 0;
+            padding: 0;
+            padding-top: 5px;
+        }
+    }
+
+}
+
+#content-wrapper {
+    padding: 15px;
+    width: 100%;
+    
+    position: relative;
+    
+    main {
+        display: inline-block;
+        width: 100%;
+        
+        .row {
+            display: inline-block;
+            width: 100%;
+            background-color: $colorForeground;
+            margin-bottom: 15px;
+        }
+        
+        .row:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+body::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+body::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+	@include boxShadow($boxShadow);
+    @include borderRadius(10px);
+    
+	background-color: $colorBackgroundLight;
+}
+
+h1#site-title {
+    height: 75px;
+    
+    a {
+        height: 100%;
+        
+        img {
+            height: 100%; 
+            opacity: 0;
+        }
+    }
+}
+
+#nav-wrapper {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    position: fixed;
+    padding: 5%;
+    top: 0;
+    z-index: 10;
+    
+    #logo-main {
+        display: table-cell;
+        vertical-align: middle;
+        height: 75px;
+        opacity: 0;
+    }
+    
+    nav {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+        //border-bottom: 1px solid $colorBackgroundLight;
+
+        ul {
+            padding: 10px 10px 10px 10px;
+            margin: 0;
+            display: inline;
+            border-bottom: 1px solid #b00424;
+
+            li:first-child {
+                margin-left: 0;
+            }
+            
+            li {
+                display: inline;
+                margin-left: 3%;
+                position: relative;
+                
+                a {
+                    @include defaultTransition(0.25s);
+                    
+                    font-family: 'Pathway Gothic One', sans-serif;
+                    font-size: 1.5em;
+                    text-decoration: none;
+                    position: relative;
+                    color: $colorTextSecondary;
+                }
+                
+                a:link,
+                a:visited {
+                    color: $colorTextSecondary;
+                }
+                
+                .light-theme a:link,
+                .light-theme a:visited {
+                    color: $colorBackground;
+                }
+            }
+            
+            li:before {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 1px;
+                background-color: $colorDecoration;
+                z-index: 1;
+                bottom: -11px;
+                @include defaultTransition(0.25s);
+            }
+            
+            li:hover a {
+                color: $colorTextTertiary;
+            }
+            
+            li:hover:before {
+                width: 100%;
+            }
+        } 
+    }
+}
+
+h1,
+h2,
+h3,
+h5 {
+    font-family: $mainFont;
+}
+
+h1, 
+h2 {
+    color: $colorTextPrimary;
+}
+
+h3, 
+h4,
+h5 {
+    color: $colorTextTertiary;
+}
+
+p {
+    font-family: $secondaryFont;
+    color: $colorTextSecondary;
+}
+
+main {
+    
+}
+
+#switch-theme {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.light-theme body {
+    background-color: $colorBackgroundLight;
+}
+
+.light-theme #wrapper {
+    background-color: $colorForegroundLight;
+}
+
+.button {
+    @include defaultTransition(0.25s);
+    
+    padding: 15px;
+    background: $colorForeground;
+    text-transform: uppercase;
+    font-family: $mainFont;
+    font-size: 1.25em;
+    display: inline-block;
+    position: relative;
+    color: $colorTextSecondary;
+}
+
+.button:before {
+    @include defaultTransition(0.25s);
+    
+    content: "";
+    width: 0%;
+    height: 1px;
+    background-color: $colorDecoration;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.button:hover {
+    color: $colorTextTertiary;
+}
+
+.button:hover:before {
+    width: 100%;
+}
+
+.button:hover {
+    cursor: pointer;
+}
