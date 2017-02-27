@@ -10,6 +10,15 @@ jQuery(document).ready(function() {
         jQuery('html').toggleClass('light-theme');
     });
     
+    jQuery('input[type="button"]').wrap('<div class="button-wrapper"></div>');
+    jQuery('input[type="submit"]').wrap('<div class="button-wrapper"></div>');
+    
+    var $inputs = jQuery('input[type="text"]');
+    for (var i = 0; i < $inputs.length; i++) {
+        var $input = $inputs.eq(i);
+        $input.attr('placeholder', jQuery('label[for="' + $input.attr('name') + '"]').text());   
+    }
+    
     jQuery("#countdown").countdown("2017/07/01", function(event) {
         jQuery("#countdown").find('.time.weeks').text(event.strftime('%w'));
         jQuery("#countdown").find('.time.days').text(event.strftime('%d'));
@@ -18,7 +27,6 @@ jQuery(document).ready(function() {
         jQuery("#countdown").find('.time.seconds').text(event.strftime('%S'));
         jQuery("#countdown").find('.time:before').css('width', event.offset.seconds + '%');
         
-        console.log(event.offset.seconds);
         //jQuery(this).text(event.strftime('%w weeks %d days %H:%M:%S'));
     });
     

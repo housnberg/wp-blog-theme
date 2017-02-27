@@ -38,6 +38,9 @@ body {
   background-color: #3A3C40; }
 
 #overlay {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -52,7 +55,7 @@ body {
     font-size: 1.5em; }
   #overlay .mission {
     text-align: left;
-    padding: 2.5%;
+    padding: 1.5%;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -64,20 +67,23 @@ body {
     margin-top: 10px;
     text-align: right; }
     #overlay #countdown .time-wrapper {
-      display: inline-block;
+      width: 19%;
       padding: 5px;
       text-align: center;
       background-color: #3A3C40;
       font-family: "Pathway Gothic One", sans-serif;
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      float: left;
+      margin-right: 1.25%; }
       #overlay #countdown .time-wrapper .time {
-        width: 2em;
         text-align: center;
         padding: 15px;
         background-color: #25272A;
         font-size: 2em;
         position: relative;
         margin-bottom: 3px; }
+    #overlay #countdown .time-wrapper:nth-child(5) {
+      margin-right: 0; }
     #overlay #countdown h2 {
       margin: 0;
       padding: 0;
@@ -230,7 +236,7 @@ p {
 .light-theme #wrapper {
   background-color: #FFFFFF; }
 
-.button {
+.button-wrapper {
   -webkit-transition-timing-function: ease-out;
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.25s;
@@ -243,16 +249,59 @@ p {
   transition-timing-function: ease-out;
   transition-property: all;
   transition-duration: 0.25s;
-  padding: 15px;
-  background: #25272A;
-  text-transform: uppercase;
-  font-family: "Pathway Gothic One", sans-serif;
-  font-size: 1.25em;
   display: inline-block;
   position: relative;
-  color: #DFDFDF; }
+  cursor: pointer;
+  border: 2px solid #FFFFFF; }
+  .button-wrapper input[type="button"],
+  .button-wrapper input[type="submit"],
+  .button-wrapper button {
+    padding: 15px;
+    background: none;
+    border: 0;
+    text-transform: uppercase;
+    font-family: "Pathway Gothic One", sans-serif;
+    font-size: 1.25em;
+    color: #DFDFDF; }
+  .button-wrapper input[type="button"]:hover,
+  .button-wrapper input[type="submit"]:hover,
+  .button-wrapper button:hover {
+    color: #9F9DA7; }
 
-.button:before {
+.button-wrapper {
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: border-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, color 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1); }
+
+.button-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  z-index: 0;
+  -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+  transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s; }
+
+.button-wrapper:hover::before {
+  opacity: 1;
+  -webkit-transform: rotate3d(0, 0, 1, 0deg);
+  transform: rotate3d(0, 0, 1, 0deg);
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1); }
+
+.button-wrapper:hover::before {
+  background-color: #FFFFFF; }
+
+input[type="text"] {
   -webkit-transition-timing-function: ease-out;
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.25s;
@@ -265,21 +314,64 @@ p {
   transition-timing-function: ease-out;
   transition-property: all;
   transition-duration: 0.25s;
-  content: "";
-  width: 0%;
-  height: 1px;
-  background-color: #60B8B9;
-  position: absolute;
-  left: 0;
-  bottom: 0; }
+  background: none;
+  padding: 10px;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 1.25em;
+  color: #DFDFDF;
+  border: 2px solid #FFFFFF; }
 
-.button:hover {
-  color: #9F9DA7; }
+input[type="text"]:hover {
+  border-left: 7px solid #FFFFFF; }
 
-.button:hover:before {
+input[type="text"]:focus {
+  border-left: 12px solid #FFFFFF; }
+
+#mc-indicates-required {
+  display: none; }
+
+.mc_var_label {
+  font-family: "Pathway Gothic One", sans-serif;
+  color: #DFDFDF; }
+
+.mc_signup_submit .button-wrapper {
   width: 100%; }
 
-.button:hover {
-  cursor: pointer; }
+.mc_merge_var {
+  width: 50%;
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .mc_merge_var .mc_input {
+    width: 100%; }
+
+.mc_merge_var:nth-child(2) {
+  padding-right: 7.5px; }
+
+.mc_merge_var:nth-child(3) {
+  padding-left: 7.5px; }
+
+#content,
+#main-content,
+footer {
+  display: none; }
+
+@media screen and (max-width: 600px), (max-device-width: 1024px) {
+  #overlay .mission {
+    width: 100% !important; }
+  #overlay .valigner {
+    display: none !important; }
+  #overlay iframe {
+    width: 100%; }
+
+  .mc_merge_var {
+    width: 100%;
+    float: left;
+    padding: 0 !important; }
+    .mc_merge_var .mc_input {
+      width: 100%; }
+
+  .mc_merge_var:nth-child(3) {
+    margin-top: 0; } }
 
 /*# sourceMappingURL=style.css.map */

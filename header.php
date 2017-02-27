@@ -25,11 +25,14 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    <i class="pin"></i>
     <header role="banner" id="overlay">
         <div class="valigner"></div>
         <div class="mission">
-            <h1>OUR MISSION</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/S85gv1RGDMU" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mqnD3JgPSVU" frameborder="0" allowfullscreen></iframe>
+            <?php if ( is_active_sidebar( 'widget-custom-header' ) ) : ?>
+                <?php dynamic_sidebar( 'widget-custom-header' ); ?>
+            <?php endif; ?>
             <div id="countdown">
                 <div class="time-wrapper">
                     <div class="time weeks"></div>
@@ -53,10 +56,6 @@
                 </div>
                 <h2>UNTIL FIRST RELEASE!</h2>
             </div>
-            <?php if ( is_active_sidebar( 'widget-custom-header' ) ) : ?>
-                <?php dynamic_sidebar( 'widget-custom-header' ); ?>
-            <?php endif; ?>
-            <a class="button">Join the community</a>
         </div> <!-- END .mission -->
     </header>
     <div id="nav-wrapper">
