@@ -10,8 +10,12 @@ jQuery(document).ready(function() {
         jQuery('html').toggleClass('light-theme');
     });
     
-    jQuery('input[type="button"]').wrap('<div class="button-wrapper"></div>');
-    jQuery('input[type="submit"]').wrap('<div class="button-wrapper"></div>');
+    var $button = jQuery('input[type="button"]');
+    $button.wrap('<div class="button-wrapper"></div>');
+    $button.parent().attr('data-hover', $button.val());
+    var $submit = jQuery('input[type="submit"]');
+    $submit.wrap('<div class="button-wrapper"></div>');
+    $submit.parent().attr('data-hover', $submit.val());
     
     var $inputs = jQuery('input[type="text"]');
     for (var i = 0; i < $inputs.length; i++) {
@@ -39,7 +43,7 @@ jQuery(document).ready(function() {
         }
         var factor = 1 - st / height;
         if (st > lastScrollTop) {
-            jQuery(".mission").css("opacity", factor);
+            //jQuery(".mission").css("opacity", factor);
             //console.log(jQuery(".mission").css("opacity"));
             if (!jQuery('#logo-main').is(':animated') && lastScrollTop > (height - heightNav)) {
                 jQuery('#nav-wrapper').animate({
@@ -53,7 +57,7 @@ jQuery(document).ready(function() {
             }
         } else {
             if (factor >= 0) {
-                jQuery(".mission").css("opacity", factor);
+                //jQuery(".mission").css("opacity", factor);
             }
             if (!jQuery('#logo-main').is(':animated') && lastScrollTop < (height - jQuery('#nav-wrapper').outerHeight(true))) {
                 jQuery('#logo-main').animate({
