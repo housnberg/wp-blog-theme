@@ -10,12 +10,63 @@ jQuery(document).ready(function() {
         jQuery('html').toggleClass('light-theme');
     });
     
-    var $button = jQuery('input[type="button"]');
-    $button.wrap('<div class="button-wrapper"></div>');
-    $button.parent().attr('data-hover', $button.val());
-    var $submit = jQuery('input[type="submit"]');
-    $submit.wrap('<div class="button-wrapper"></div>');
-    $submit.parent().attr('data-hover', $submit.val());
+    jQuery('#lang-de').on('click', function() {
+        if (jQuery('iframe').attr('language') === 'en') {
+            jQuery('iframe').attr('src', 'https://www.youtube.com/embed/LuhkjNUYsvU');
+            jQuery('#lang-en').toggleClass('active');
+            jQuery('#lang-de').toggleClass('active');
+            jQuery('iframe').attr('language', 'de');
+        }
+    });
+    
+    jQuery('#lang-en').on('click', function() {
+        if (jQuery('iframe').attr('language') === 'de') {
+            jQuery('iframe').attr('src', 'https://www.youtube.com/embed/_j73uTSTdtA');
+            jQuery('#lang-en').toggleClass('active');
+            jQuery('#lang-de').toggleClass('active'); 
+            jQuery('iframe').attr('language', 'en');
+        }
+    });
+    
+    jQuery('#mc_message').bind('DOMNodeInserted', function() {
+        //jQuery('#mc_message').
+        var error = jQuery('#mc_message').find('.mc_error_msg');
+        if (error !== undefined) {
+            var text = "Please enter a valid Email address.";
+            if (jQuery('iframe').attr('language') === 'de') {
+                text = "Bitte gebe eine gültige email Adresse an.";
+            } 
+            error.text(text);
+            setTimeout(function() {
+                error.remove();
+            }, 5000);
+        }
+        
+        var success = jQuery('#mc_message').find('.mc_success_msg');
+        if (success !== undefined) {
+            var text = "Success, you've been signed up! Please look for our confirmation email.";
+            if (jQuery('iframe').attr('language') === 'de') {
+                text = "Herzlichen Glückwunsch, du hast dich erfolgreich in die Liste eingetragen! Prüfe bitte deine Emails zur Bestätigung.";
+            } 
+            success.text(text);
+            setTimeout(function() {
+                success.remove();
+            }, 5000);
+        }
+    });
+    
+    var $buttons = jQuery('input[type="button"]');
+    for (var i = 0; i < $buttons.length; i++) {
+        var $button = $buttons.eq(i);
+        $button.wrap('<span class="button-wrapper"></span>');
+        $button.parent().attr('data-hover', $button.val());  
+    }
+    var $submits = jQuery('input[type="submit"]');
+    for (var i = 0; i < $submits.length; i++) {
+        var $submit = $submits.eq(i);
+        $submit.wrap('<span class="button-wrapper"></span>');
+        $submit.parent().attr('data-hover', $submit.val());  
+    }
     
     var $inputs = jQuery('input[type="text"]');
     for (var i = 0; i < $inputs.length; i++) {

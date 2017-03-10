@@ -27,9 +27,12 @@
 <body <?php body_class(); ?>>
     <i class="pin"></i>
     <header role="banner" id="overlay">
-        <div class="valigner"></div>
         <div class="mission">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mqnD3JgPSVU" frameborder="0" allowfullscreen></iframe>
+            <div class="valigner"></div>
+            <iframe language="en" width="896" height="504" src="https://www.youtube.com/embed/_j73uTSTdtA" frameborder="0" allowfullscreen></iframe>
+            <div class="valigner"></div>
+            <div class="tmp-wrapper">
+                <img id="tmp-logo" src="<?php bloginfo( 'template_url' ); ?>/images/Brainfuel_Logofont.png"/>
             <?php if ( is_active_sidebar( 'widget-custom-header' ) ) : ?>
                 <?php dynamic_sidebar( 'widget-custom-header' ); ?>
             <?php endif; ?>
@@ -56,6 +59,9 @@
                 </div>
                 <h2>UNTIL FIRST RELEASE!</h2>
             </div>
+                <input id="lang-de" type="button" value="Deutsch"/>
+                <input id="lang-en" type="button" value="english" class="active" />
+                </div>
         </div> <!-- END .mission -->
     </header>
     <div id="nav-wrapper">

@@ -12,6 +12,13 @@ $colorTextSecondary: #DFDFDF;
 $colorTextTertiary: #9F9DA7;
 $colorDecoration: #60B8B9;
 
+//$colorBackground: #3A3C40;
+//$colorForeground: #25272A;
+//$colorTextPrimary: #FFFFFF;
+//$colorTextSecondary: #DFDFDF;
+//$colorTextTertiary: #9F9DA7;
+//$colorDecoration: #60B8B9;
+
 $colorBackgroundLight: #EEEEEE;
 $colorForegroundLight: #FFFFFF;
 
@@ -50,6 +57,10 @@ $boxShadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 body {
     background-color: $colorBackground;
+    
+    background: url(../images/Background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 #overlay {
@@ -58,9 +69,6 @@ body {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background: url(../images/wjkc3xzjsxw-geran-de-klerk.jpg);
-    background-size: cover;
-    background-position: center;
     text-align: center;
     
     h1 {
@@ -73,55 +81,66 @@ body {
     }
     
     .mission {
-        text-align: left;
+        text-align: center;
         padding: 1.5%;
+        height: 100%;
         
         @include boxShadow($boxShadow);
-        background-color: rgba(0, 0, 0, 0.5);
+        //background-color: rgba(0, 0, 0, 0.5);
+        
+        #tmp-logo {
+            width: 100%;
+        }
     }
     
     iframe {
-        display: block;
     }
     
-    #countdown {
+    .tmp-wrapper {
+        display: inline-block;
+        margin-left: 15px;
+        width: 30%;
+        position: relative;
     
-        margin-bottom: 10px;
-        margin-top: 10px;
-        text-align: right;
-        
-        .time-wrapper {
-            width: 19%;
-            padding: 5px;
-            text-align: center;
-            background-color: $colorBackground;
-            font-family: $mainFont;
-            color: $colorTextPrimary;
-            float: left;
-            margin-right: 1.25%;
-            
-            .time {
-                text-align: center;
-                padding: 15px;
-                background-color: $colorForeground;
-                font-size: 2em;
-                position: relative;
-                margin-bottom: 3px;
-            } 
-        }
-        
-        //LAST CHILD SELECTOR NOT FUCKING WORKING
-        .time-wrapper:nth-child(5) {
-                margin-right: 0;
-            }
-        
-        h2 {
-            margin: 0;
-            padding: 0;
-            padding-top: 5px;
-        }
-    }
+    
+        #countdown {
 
+            margin-bottom: 10px;
+            margin-top: 10px;
+            text-align: right;
+
+            .time-wrapper {
+                width: 19%;
+                padding: 5px;
+                text-align: center;
+                background-color: #EEEEEE;
+                font-family: $mainFont;
+                color: $colorBackground;
+                float: left;
+                margin-right: 1.25%;
+
+                .time {
+                    text-align: center;
+                    padding: 15px;
+                    background-color: #DFDFDF;
+                    font-size: 1.75em;
+                    position: relative;
+                    margin-bottom: 3px;
+                } 
+            }
+
+            //LAST CHILD SELECTOR NOT FUCKING WORKING
+            .time-wrapper:nth-child(5) {
+                    margin-right: 0;
+                }
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                padding-top: 5px;
+            }
+        }
+    }
 }
 
 #content-wrapper {
@@ -177,7 +196,7 @@ h1#site-title {
 }
 
 #nav-wrapper {
-    display: table;
+    display: none;
     table-layout: fixed;
     width: 100%;
     position: fixed;
@@ -303,7 +322,6 @@ main {
     //background: $colorForeground;
     display: inline-block;
     position: relative;
-    cursor: pointer;
     border: 2px solid $colorTextPrimary;
     
     input[type="button"],
@@ -316,12 +334,24 @@ main {
         font-family: $mainFont;
         font-size: 1.25em;
         color: $colorTextSecondary;
+        z-index: 10;
+        width: 100%;
     }
     
     input[type="button"]:hover,
     input[type="submit"]:hover,
     button:hover {
         color: $colorTextTertiary;
+    }
+    
+    input[type="button"].active,
+    input[type="submit"].active,
+    button:hover {
+        color: $colorBackground;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: $colorTextPrimary;
     }
 }
 
@@ -348,6 +378,7 @@ main {
 	width: 100%;
 	height: 100%;
 	z-index: 0;
+    pointer-events: none;
 	-webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
 	transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
 	-webkit-transform-origin: 0% 100%;
@@ -409,22 +440,34 @@ input[type="text"]:focus {
 }
 
 .mc_merge_var {
-    width: 50%;
+    width: 100%;
     float: left;
-    margin-top: 15px;
     margin-bottom: 15px;
+    text-align: left;
     
     .mc_input {
         width: 100%;
     }
 }
 
-.mc_merge_var:nth-child(2) {
-    padding-right: 7.5px;
-}
-
-.mc_merge_var:nth-child(3) {
-    padding-left: 7.5px;
+#mc_message {
+    font-family: $mainFont;
+    color: $colorTextSecondary;
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    
+    .mc_error_msg,
+    .mc_success_msg {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid red;
+        display: inline-block;
+    }
+    
+    .mc_success_msg {
+        border: 2px solid #00e29e;
+    }   
 }
 
 #content,
@@ -447,6 +490,12 @@ footer {
         
         iframe {
             width: 100%;
+        }
+        
+        .tmp-wrapper {
+            width: 100%;
+            display: block;
+            margin: 0;
         }
     }
     
