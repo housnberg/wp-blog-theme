@@ -74,7 +74,7 @@ jQuery(document).ready(function() {
         $input.attr('placeholder', jQuery('label[for="' + $input.attr('name') + '"]').text());   
     }
     
-    jQuery("#countdown").countdown("2017/07/01", function(event) {
+    jQuery("#countdown").countdown("2017/07/16", function(event) {
         jQuery("#countdown").find('.time.weeks').text(event.strftime('%w'));
         jQuery("#countdown").find('.time.days').text(event.strftime('%d'));
         jQuery("#countdown").find('.time.hours').text(event.strftime('%H'));
